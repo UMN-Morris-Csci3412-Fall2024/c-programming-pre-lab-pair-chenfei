@@ -36,15 +36,15 @@ char const *strip(char const *str) {
   char* result = (char*) calloc(size-num_spaces+1, sizeof(char));
 
   // Copy in the "saved" characters.
-  int i;
-  for (i = first_non_space; i <= last_non_space; ++i) {
-    result[i-first_non_space] = str[i];
+  for (int i = first_non_space; i <= last_non_space; ++i) {
+    result[i - first_non_space] = str[i];
   }
-  // Place the null terminator at the end of the result string.
-  result[i-first_non_space] = '\0';
 
+  // Place the null terminator at the end of the result string.
+  result[last_non_space - first_non_space + 1] = '\0';
   return result;
 }
+
 
 /*
  * Return true (1) if the given string is "clean", i.e., has
